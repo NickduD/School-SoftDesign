@@ -4,7 +4,6 @@ package com.softdesign.school.ui.activities;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public final static String VISIBLE_KEY = "visible";
     public final static String STATUS_BAR_COLOR_KEY = "statusBarColor";
     public final static String ACTION_BAR_COLOR_KEY = "actionBarColor";
+    private final Lg log = Lg.getLogger(MainActivity.class, true);
 
     int mStatusBarColor = 0;
     int mActionBarColor = 0;
@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Lg.e(this.getClass().getName(), "onCreate");
+//        Lg.e(this.getClass().getName(), "onCreate");
+        log.e("onCreate");
         super.onCreate(savedInstanceState);
 
 //        ThemeChanger.onActivityCreateSetTheme(this); // handler
@@ -63,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBlueButton.setOnClickListener(this);
     }
 
+    /**
+     * Setup custom toolbar
+     */
     private void setupToolbar(){
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -83,37 +87,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
-        Lg.e(this.getClass().getName(), "onStart");
+//        Lg.e(this.getClass().getName(), "onStart");
+        log.e("onStart");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Lg.e(this.getClass().getName(), "onResume");
+//        Lg.e(this.getClass().getName(), "onResume");
+        log.e("onResume");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Lg.e(this.getClass().getName(), "onPause");
+//        Lg.e(this.getClass().getName(), "onPause");
+        log.e("onPause");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Lg.e(this.getClass().getName(), "onStop");
+//        Lg.e(this.getClass().getName(), "onStop");
+        log.e("onStop");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Lg.e(this.getClass().getName(), "onRestart");
+//        Lg.e(this.getClass().getName(), "onRestart");
+        log.e("onRestart");
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Lg.e(this.getClass().getName(), "onDestroy");
+//        Lg.e(this.getClass().getName(), "onDestroy");
+        log.e("onDestroy");
     }
 
     @Override
@@ -132,49 +143,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_blue:
                 Toast.makeText(this, "Blue Btn", Toast.LENGTH_SHORT).show();
-//                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.test_color_blue)));
-             //   ThemeChanger.changeToTheme(this, ThemeChanger.THEME_BLUE);
 
-                /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                    getWindow().setStatusBarColor(Color.BLUE);
-                    mStatusBarColor = 1;
-                }*/
+             //   ThemeChanger.changeToTheme(this, ThemeChanger.THEME_BLUE);
 
                 setStatusBarColor(ContextCompat.getColor(this, R.color.blue));
                 setActionBarColor(actionBar, R.color.dark_blue);
-                /*if(actionBar != null) {
-                    int test =
-                    actionBar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.dark_blue)));
-                    mActionBarColor = R.color.dark_blue;
-                }*/
-                /*if(actionBar != null) {
-                    actionBar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.dark_blue)));
-                    mActionBarColor = 1;
-                }*/
-                //changing statusbar
-              //  getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
-
-               /* if (android.os.Build.VERSION.SDK_INT >= 21){
-                    Window window = this.getWindow();
-                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                    //window.setStatusBarColor(this.getResources().getColor(android.R.color.holo_blue_dark, getTheme()));//).getColor(R.color.primary_dark));
-                    window.setStatusBarColor(this.getResources().getColor(android.R.color.white));
-                }*/
                 break;
             case R.id.button_green:
 
                 Toast.makeText(this, "Green Btn", Toast.LENGTH_SHORT).show();
-                /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                    getWindow().setStatusBarColor(Color.GREEN);
-                    mStatusBarColor = 2;
-                }
-                if(actionBar != null) {
-                    actionBar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.dark_green)));
-                    mActionBarColor = 2;
-                }*/
 
                 setStatusBarColor(ContextCompat.getColor(this, R.color.green));
                 setActionBarColor(actionBar, R.color.dark_green);
@@ -184,15 +161,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_red:
                 Toast.makeText(this, "Red Btn", Toast.LENGTH_SHORT).show();
 
-                /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                    getWindow().setStatusBarColor(Color.RED);
-                    mStatusBarColor = 3;
-                }
-                if(actionBar != null) {
-                    actionBar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.dark_red)));
-                    mActionBarColor = 3;
-                }*/
                 setStatusBarColor(ContextCompat.getColor(this, R.color.red));
                 setActionBarColor(actionBar, R.color.dark_red);
 
@@ -202,6 +170,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * Sets a new color of {@link ActionBar}
+     * @param actionBar is object for setting a color
+     * @param color is a new color of actionBar
+     */
+
     private void setActionBarColor(ActionBar actionBar, int color){
         if(actionBar != null) {
             actionBar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, color)));
@@ -209,6 +183,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * Sets a new color of StatusBar
+     * @param color is a new color of StatusBar
+     */
     private void setStatusBarColor(int color){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -225,7 +203,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         outState.putInt(ACTION_BAR_COLOR_KEY, mActionBarColor);
         outState.putInt(STATUS_BAR_COLOR_KEY, mStatusBarColor);
 
-        Lg.e(this.getClass().getName(), "onSaveInstanceState");
+//        Lg.e(this.getClass().getName(), "onSaveInstanceState");
+        log.e("onSaveInstanceState");
     }
 
     @Override
@@ -241,7 +220,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null && actionBarColorKey !=0) setActionBarColor(actionBar, actionBarColorKey);
 
-        Lg.e(this.getClass().getName(), "onRestoreInstanceState");
-
+//        Lg.e(this.getClass().getName(), "onRestoreInstanceState");
+        log.e("onRestoreInstanceState");
     }
 }

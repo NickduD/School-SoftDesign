@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:paddingBottom="@dimen/main_padding_bottom"
+    android:paddingLeft="@dimen/main_padding_left"
+    android:paddingRight="@dimen/main_padding_right"
     android:paddingTop="?attr/actionBarSize"
     tools:context="com.softdesign.school.ui.activities.MainActivity">
 
@@ -50,21 +50,19 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Blue"
-            android:id="@+id/button_blue"
-            android:layout_below="@+id/linearLayout" />
+            android:text="@string/blue_button"
+            android:id="@+id/button_blue" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Red"
-            android:id="@+id/button_red"
-            android:layout_alignTop="@+id/button_green" />
+            android:text="@string/red_button"
+            android:id="@+id/button_red" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Green"
+            android:text="@string/green_button"
             android:id="@+id/button_green" />
     </LinearLayout>
 </RelativeLayout>

@@ -10,7 +10,7 @@
     <color name="blue">#0000FF</color>
     <color name="red">#FF0000</color>
 
-    <color name="dark_green" test="1">#006400</color>
-    <color name="dark_blue" test="2">#000080</color>
-    <color name="dark_red" test="3">#990000</color>
+    <color name="dark_green">#006400</color>
+    <color name="dark_blue">#000080</color>
+    <color name="dark_red">#990000</color>
 </resources>
