@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fontFamily="sans-serif"
+    android:textSize="16sp">
+    <item
+        android:title="@string/navigation_menu.profile"
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_assignment_ind_24dp"
+        >
+    </item>
+    <item
+        android:title="@string/navigation_menu.contacts"
+        android:id="@+id/navigation_contacts"
+        android:icon="@drawable/ic_group_24dp"
+        >
+    </item>
+    <item
+        android:title="@string/navigation_menu.team"
+        android:id="@+id/navigation_team"
+        android:icon="@drawable/ic_people_outline_24dp"
+        >
+    </item>
+    <item
+        android:title="@string/navigation_menu.tasks"
+        android:id="@+id/navigation_tasks"
+        android:icon="@drawable/ic_work_24dp"
+        >
+    </item>
+    <item
+        android:title="@string/navigation_menu.settings"
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings_24dp"
+        >
+    </item>
+</menu>

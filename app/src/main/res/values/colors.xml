@@ -13,4 +13,8 @@
     <color name="dark_green">#006400</color>
     <color name="dark_blue">#000080</color>
     <color name="dark_red">#990000</color>
+    <!-- Navigation header-->
+    <color name="drawer_avatar">#EA192E</color>
+    <color name="drawer_rating">#84e084</color>
+
 </resources>
