@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/navigation_header_height"
+    android:background="@drawable/ic_user_background"
+    android:fitsSystemWindows="true"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:id="@+id/avatarLayout"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp">
+        <!--Custom view: http://stackoverflow.com/questions/30346879/android-support-v4-widget-circleimageview-does-not-work-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imageViewAvatar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ava"
+            app:civ_border_width="0dp"
+            app:civ_border_color="@color/red"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            />
+        <!--Relative layout for rating and text inside-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageViewRating"
+                android:src="@drawable/ic_rating"
+                android:layout_alignParentRight="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:layout_alignLeft="@+id/imageViewRating"
+                android:layout_alignTop="@+id/imageViewRating"
+                android:layout_alignRight="@+id/imageViewRating"
+                android:layout_alignBottom="@+id/imageViewRating"
+                android:gravity="center"
+                android:textColor="#000000"/>
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_below="@+id/avatarLayout"
+        android:fontFamily="sans-serif"
+        android:layout_marginLeft="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/fullname"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:id="@+id/fullname"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/email"
+            android:textStyle="normal"
+            android:textSize="14sp"
+            android:id="@+id/email"
+            android:textColor="@android:color/black"
+            android:layout_below="@+id/fullname" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
