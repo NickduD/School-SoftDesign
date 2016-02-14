@@ -4,32 +4,130 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="false"
+    android:fitsSystemWindows="true"
     tools:context="com.softdesign.school.ui.activities.MainActivity"
     >
 
     <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
 
         <android.support.design.widget.AppBarLayout
             style="@style/AppTheme.AppBarOverlay"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="256dp"
+            android:fitsSystemWindows="true"
+            android:id="@+id/app_bar_layout">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+            <android.support.design.widget.CollapsingToolbarLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:elevation="16dp"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/collapsing_toolbar"
+                android:fitsSystemWindows="true"
+                app:contentScrim="@color/primary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+                app:title="@string/fullname"
+                app:titleEnabled="true"
+                app:expandedTitleTextAppearance="@style/CollapsingToolbarExpandedTitleText"
+                app:collapsedTitleTextAppearance="@style/CollapsingToolbarCollapsedTitleText"
+
+                app:collapsedTitleGravity="center_vertical"
+                app:expandedTitleGravity="bottom"
+                app:expandedTitleMarginBottom="@dimen/spacing_default"
+                app:expandedTitleMarginStart="@dimen/spacing_large"
+                >
+                <!--
+
+                app:expandedTitleMarginBottom=""
+                app:expandedTitleMarginStart=""
+                app:expandedTitleGravity="bottom"
+
+                app:statusBarScrim="@color/colorPrimaryDark"
+                app:titleEnabled="true"
+                app:toolbarId="@+id/toolbar"-->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/collapsing_toolbar_image_height"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="center"
+                    android:src="@drawable/image_main"
+                    app:contentScrim="@color/primary"
+                    />
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    tools:ignore="NewApi"/>
+                <RelativeLayout
+                    android:id="@+id/relativeLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/imageView"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:elevation="16dp"
+                    app:layout_collapseMode="pin">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageViewRating"
+                        android:src="@drawable/ic_rating"
+                        android:layout_alignParentLeft="true"
+                        />
+                    <TextView
+                        android:id="@+id/text_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rating"
+                        android:layout_alignLeft="@+id/imageViewRating"
+                        android:layout_alignTop="@+id/imageViewRating"
+                        android:layout_alignRight="@+id/imageViewRating"
+                        android:layout_alignBottom="@+id/imageViewRating"
+                        android:gravity="center"
+                        android:textColor="#000000"/>
+
+                    <!--<ImageView
+                        android:id="@+id/imageCircle"
+                        android:layout_width="@android:dimen/app_icon_size"
+                        android:layout_height="@android:dimen/app_icon_size"
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_brightness_1_24dp"/>
+
+                    <TextView
+                        android:id="@+id/txtRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/my_rating"
+                        android:textColor="@color/colorAccent"/>-->
+                </RelativeLayout>
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+
         </android.support.design.widget.AppBarLayout>
 
         <!--<include layout="@layout/main_content" />-->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/main_frame_container">
+            android:id="@+id/main_frame_container"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
         </FrameLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/float_action_button"
+            android:src="@drawable/ic_mode_edit_24dp"
+            android:layout_margin="16dp"
+            app:layout_anchor="@id/app_bar_layout"
+            app:layout_anchorGravity="bottom|right|end"/>
 
     </android.support.design.widget.CoordinatorLayout>
 

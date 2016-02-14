@@ -3,11 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/navigation_header_height"
     android:background="@drawable/ic_user_background"
+    android:paddingTop="24dp"
     android:fitsSystemWindows="true"
     >
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="78dp"
+        android:layout_height="70dp"
         android:id="@+id/avatarLayout"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -16,8 +17,8 @@
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/imageViewAvatar"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
             android:src="@drawable/ava"
             app:civ_border_width="0dp"
             app:civ_border_color="@color/red"
@@ -36,9 +37,10 @@
                 android:layout_alignParentRight="true"
                 />
             <TextView
+                android:id="@+id/text_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12"
+                android:text="@string/rating"
                 android:layout_alignLeft="@+id/imageViewRating"
                 android:layout_alignTop="@+id/imageViewRating"
                 android:layout_alignRight="@+id/imageViewRating"
@@ -49,7 +51,7 @@
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="52dp"
         android:layout_below="@+id/avatarLayout"
         android:fontFamily="sans-serif"
         android:layout_marginLeft="16dp">

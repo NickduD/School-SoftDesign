@@ -4,9 +4,12 @@ package com.softdesign.school.ui.activities;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +22,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.softdesign.school.R;
@@ -46,9 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText mEditText;
     EditText mEditText2;
     Toolbar mToolbar;
-    Button mRedButton;
-    Button mGreenButton;
-    Button mBlueButton;
 
     NavigationView mNavigationView;
     DrawerLayout mNavigationDrawer;
@@ -57,6 +58,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FrameLayout mFrameLayout;
     MenuItem mPreviousItem;
 
+    AppBarLayout mAppBarLayout;
+    CollapsingToolbarLayout mCollapsingToolbarLayout;
+    AppBarLayout.LayoutParams params = null;
 
 
     @Override
@@ -69,33 +73,68 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        ThemeChanger.onActivityCreateSetTheme(this); // handler
 
         setContentView(R.layout.activity_main);
-        setTitle("Homework #3");
+        setTitle("Homework #4");
 
-
-//        mCheckBox = (CheckBox) findViewById(R.id.checkBox);
-//        mCheckBox.setOnClickListener(this);
-//        mEditText = (EditText) findViewById(R.id.editText);
-//        mEditText2 = (EditText) findViewById(R.id.editText2);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setupToolbar();
+        mAppBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
+        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
 
-        mRedButton = (Button) findViewById(R.id.button_red);
-        mGreenButton = (Button) findViewById(R.id.button_green);
-        mBlueButton = (Button) findViewById(R.id.button_blue);
-
-//        mRedButton.setOnClickListener(this);
-//        mGreenButton.setOnClickListener(this);
-//        mBlueButton.setOnClickListener(this);
 
         mNavigationDrawer =(DrawerLayout) findViewById(R.id.navigation_drawer);
-        mNavigationView =(NavigationView) findViewById(R.id.navigation_view);
-        setupDrawer();
-//        if(savedInstanceState!=null){
-//
-//        } else {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container, new ContactsFragment()).commit();
-//        }
 
+        mNavigationView =(NavigationView) findViewById(R.id.navigation_view);
+        setupToolbar();
+        setupDrawer();
+        if(savedInstanceState!=null){
+
+        } else {
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container, new ProfileFragment()).commit();
+        }
+
+    }
+    public void lockBar(boolean collapse) {
+
+        params = (AppBarLayout.LayoutParams) mCollapsingToolbarLayout.getLayoutParams(); // get ViewElement parameters
+
+        if (collapse) {
+            mAppBarLayout.setExpanded(false);
+            AppBarLayout.OnOffsetChangedListener mListener = new AppBarLayout.OnOffsetChangedListener() {
+                @Override
+                public void onOffsetChanged(AppBarLayout mAppBarLayout, int verticalOffset) {
+                    if (mCollapsingToolbarLayout.getHeight() + verticalOffset <= ViewCompat.getMinimumHeight(mCollapsingToolbarLayout) + getStatusBarHeight()) {
+                        params.setScrollFlags(0); // remove scroll attributes
+                        mCollapsingToolbarLayout.setLayoutParams(params);
+                        mAppBarLayout.removeOnOffsetChangedListener(this);
+                    }
+                }
+            };
+            mAppBarLayout.addOnOffsetChangedListener(mListener);
+        } else {
+            mAppBarLayout.setExpanded(true);
+            params.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL | AppBarLayout.LayoutParams.SCROLL_FLAG_EXIT_UNTIL_COLLAPSED);
+            mCollapsingToolbarLayout.setLayoutParams(params);
+        }
+    }
+    /**
+     * Returns toolbar heigth
+     */
+
+    public int getStatusBarHeight() {
+        /*int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;*/
+        return 0;
+    }
+
+    /**
+     * Set text into CollapsToolBar
+     */
+    public void setCollapsToolbarTitle(CharSequence title) {
+        mCollapsingToolbarLayout.setTitle(title);
+        mCollapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, android.R.color.white));
     }
 
     /**
@@ -194,14 +233,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             getSupportFragmentManager().popBackStack();
 
         } else {
-            setTitle("Homework #3");
+            setTitle("Homework #4");
             finish();
-//            System.exit(0); // onStop and onDestroy doesn't work in this case
-            //android.os.Process.killProcess(android.os.Process.myPid());
-//            setResult(RESULT_OK, null);
-//            finish();
-//            System.runFinalizersOnExit(true);
-//            android.os.Process.killProcess(android.os.Process.myPid()); // hard
         }
 //        super.onBackPressed();
     }
