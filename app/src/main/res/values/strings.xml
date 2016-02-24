@@ -11,4 +11,10 @@
     <string name="fragment.contacts.description">My contacts</string>
     <string name="fullname">Nikolai Durasov</string>
     <string name="email">myemail@email.com</string>
+
+    <string name="font_regular">sans-serif</string>
+    <string name="font_medium">sans-serif-medium</string>
+    <string name="vk_link">vk.com/nickdu</string>
+    <string name="github_repository">github.com/NickduD/school-softdesign</string>
+    <string name="rating">12</string>
 </resources>

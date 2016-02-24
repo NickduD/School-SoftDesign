@@ -1,13 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile!"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        />
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/list_item"
 
-</RelativeLayout>
+    android:orientation="vertical">
+    <!--android:layout_marginTop="@dimen/spacing_small"-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/main_padding_left"
+        android:paddingRight="@dimen/main_padding_right">
+-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:id="@+id/profile_phone_layout"
+            >
+
+            <android.support.v7.widget.AppCompatImageView
+                style="@style/icon"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/spacing_default"
+                android:src="@drawable/ic_call" />
+
+            <LinearLayout
+                style="@style/fragment_profile_linear_layout"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:fontFamily="@string/font_regular"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="89271234567"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_large_16"
+                    tools:ignore="RtlCompat,UnusedAttribute" />
+
+                <TextView
+                    style="@style/fragment_profile_description"
+                    android:text="Phone"
+                    tools:ignore="RtlCompat,UnusedAttribute"/>
+
+            </LinearLayout>
+            <View style="@style/fragment_profile_separator" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:id="@+id/profile_email_layout"
+            android:layout_below="@+id/profile_phone_layout"
+            >
+
+            <android.support.v7.widget.AppCompatImageView
+                style="@style/icon"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/spacing_default"
+                android:src="@drawable/ic_email_24dp" />
+
+            <LinearLayout
+                style="@style/fragment_profile_linear_layout">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:fontFamily="@string/font_regular"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="@string/email"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_large_16"
+                    tools:ignore="RtlCompat,UnusedAttribute" />
+
+                <TextView
+                    style="@style/fragment_profile_description"
+                    tools:ignore="RtlCompat,UnusedAttribute"
+                    android:text="E-mail"/>
+
+            </LinearLayout>
+            <View style="@style/fragment_profile_separator" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:id="@+id/profile_vk_layout"
+            android:layout_below="@+id/profile_email_layout"
+            >
+
+            <android.support.v7.widget.AppCompatImageView
+                style="@style/icon"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/spacing_default"
+                android:src="@drawable/ic_vk_24" />
+
+            <LinearLayout
+                style="@style/fragment_profile_linear_layout">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:fontFamily="@string/font_regular"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="@string/vk_link"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_large_16"
+                    tools:ignore="RtlCompat,UnusedAttribute" />
+
+                <TextView
+                    style="@style/fragment_profile_description"
+                    tools:ignore="RtlCompat,UnusedAttribute"
+                    android:text="Vk"/>
+
+            </LinearLayout>
+            <View style="@style/fragment_profile_separator" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:id="@+id/profile_github_layout"
+            android:layout_below="@+id/profile_vk_layout"
+            >
+
+            <android.support.v7.widget.AppCompatImageView
+                style="@style/icon"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/spacing_default"
+                android:src="@drawable/ic_github_24" />
+
+            <LinearLayout
+                style="@style/fragment_profile_linear_layout">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:fontFamily="@string/font_regular"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="@string/github_repository"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_large_16"
+                    tools:ignore="RtlCompat,UnusedAttribute" />
+
+                <TextView
+                    style="@style/fragment_profile_description"
+                    android:text="Repository"
+                    tools:ignore="RtlCompat,UnusedAttribute"/>
+                <!--android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:fontFamily="@string/font_regular"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="E-mail"
+                android:textAlignment="viewStart"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/font_normal_14"
+                tools:ignore="RtlCompat,UnusedAttribute"-->
+
+            </LinearLayout>
+            <View style="@style/fragment_profile_separator" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:id="@+id/profile_about_layout"
+            android:layout_below="@+id/profile_github_layout"
+            >
+
+            <android.support.v7.widget.AppCompatImageView
+                style="@style/icon"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/spacing_default"
+                android:src="@drawable/ic_email_24dp" />
+
+            <LinearLayout
+                style="@style/fragment_profile_linear_layout">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:fontFamily="@string/font_regular"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Description"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_large_16"
+                    tools:ignore="RtlCompat,UnusedAttribute" />
+
+                <TextView
+                    style="@style/fragment_profile_description"
+                    tools:ignore="RtlCompat,UnusedAttribute"
+                    android:text="About"
+                     />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+   <!-- </RelativeLayout>-->
+</android.support.v4.widget.NestedScrollView>
