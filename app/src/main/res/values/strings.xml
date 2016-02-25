@@ -17,4 +17,6 @@
     <string name="vk_link">vk.com/nickdu</string>
     <string name="github_repository">github.com/NickduD/school-softdesign</string>
     <string name="rating">12</string>
+    <string name="button.add_user">Add User</string>
+    <string name="button.add_team">Add Team</string>
 </resources>
