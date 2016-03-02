@@ -4,12 +4,25 @@
     <application android:allowBackup="true" android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        >
-        <activity android:name=".ui.activities.MainActivity"
+        android:name=".ui.activities.ActiveAndroidApplication">
+
+        <!--<activity android:name=".ui.activities.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"></action>
                 <category android:name="android.intent.category.LAUNCHER"></category>
+            </intent-filter>
+        </activity>-->
+        <meta-data android:name="AA_DB_NAME" android:value="SoftDesignSchool.db"/>
+        <meta-data android:name="AA_DB_VERSION" android:value="1"/>
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="com.softdesign.school.data.storage.models.User, com.softdesign.school.data.storage.models.Team"/>
+        <activity android:name=".ui.activities.ActiveAndroidActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 

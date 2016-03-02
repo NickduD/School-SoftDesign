@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.softdesign.school.R;
+import com.softdesign.school.data.storage.models.Team;
 import com.softdesign.school.data.storage.models.User;
 
 import java.util.ArrayList;
@@ -27,7 +28,9 @@ public class RecycleUsersAdapter extends RecyclerView.Adapter<UserViewHolder>{
     public void onBindViewHolder(UserViewHolder holder, int position) {
         User user = users.get(position);
         holder.fullName.setText(user.getmFirstName() + " " + user.getmLastName());
-        holder.avatar.setImageDrawable(user.getmImage());
+//        holder.avatar.setImageDrawable(user.getmImage());
+        Team team = user.getmTeam();
+        holder.team.setText(team.getName());
 
     }
 

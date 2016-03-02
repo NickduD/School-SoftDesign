@@ -33,6 +33,9 @@ import com.softdesign.school.ui.fragments.TasksFragment;
 import com.softdesign.school.ui.fragments.TeamFragment;
 import com.softdesign.school.utils.Lg;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     public final static String VISIBLE_KEY = "visible";
@@ -49,17 +52,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     CheckBox mCheckBox;
     EditText mEditText;
     EditText mEditText2;
-    Toolbar mToolbar;
+    @Bind(R.id.toolbar) Toolbar mToolbar;
+    @Bind(R.id.app_bar_layout) AppBarLayout mAppBarLayout;
+    @Bind(R.id.collapsing_toolbar) CollapsingToolbarLayout mCollapsingToolbarLayout;
 
-    NavigationView mNavigationView;
-    DrawerLayout mNavigationDrawer;
+    @Bind(R.id.navigation_drawer) DrawerLayout mNavigationDrawer;
 
+    @Bind(R.id.navigation_view) NavigationView mNavigationView;
     Fragment mFragment;
     FrameLayout mFrameLayout;
-    MenuItem mPreviousItem;
 
-    AppBarLayout mAppBarLayout;
-    CollapsingToolbarLayout mCollapsingToolbarLayout;
+    MenuItem mPreviousItem;
     AppBarLayout.LayoutParams params = null;
 
 
@@ -73,16 +76,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        ThemeChanger.onActivityCreateSetTheme(this); // handler
 
         setContentView(R.layout.activity_main);
-        setTitle("Homework #4");
+        setTitle("Homework #5");
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mAppBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
-        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+//        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+//        mAppBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
+//        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
 
 
-        mNavigationDrawer =(DrawerLayout) findViewById(R.id.navigation_drawer);
-
-        mNavigationView =(NavigationView) findViewById(R.id.navigation_view);
+//        mNavigationDrawer =(DrawerLayout) findViewById(R.id.navigation_drawer);
+//
+//        mNavigationView =(NavigationView) findViewById(R.id.navigation_view);
+        ButterKnife.bind(this);
         setupToolbar();
         setupDrawer();
         if(savedInstanceState!=null){
